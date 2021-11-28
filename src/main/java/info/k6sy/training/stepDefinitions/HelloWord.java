@@ -5,10 +5,12 @@ import info.k6sy.training.pom.HelloWord.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 
 public class HelloWord {
 
-    BrowserControl browser = new BrowserControl();
+    BrowserControl browser = new BrowserControl("chrome");
+
 
     @Given("Open the Chrome and launch the application")
     public void open_the_chrome_and_launch_the_application() {
@@ -17,6 +19,7 @@ public class HelloWord {
     }
     @When("Check the homePage")
     public void check_the_home_page() {
+
         HomePage home = new HomePage(this.browser);
         home.clickOnLogo();
         home.makeSearch();
